@@ -1,0 +1,132 @@
+
+
+// ===================== index.tsx =====================
+import React from 'react'
+
+export default function App() {
+  return (
+    <main className="min-h-screen bg-white text-slate-900">
+      <Navbar />
+      <Hero />
+      <Skills />
+      <Projects />
+      <Footer />
+    </main>
+  )
+}
+
+// ===================== Components =====================
+
+function Navbar() {
+  return (
+    <nav className="sticky top-0 w-full bg-white/90 backdrop-blur border-b z-50">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className="font-bold text-xl">Yash Kumar</h1>
+        <div className="space-x-6 text-sm">
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+// ---------- Hero with Interactive Video Background ----------
+function Hero() {
+  return (
+    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+
+      <div className="relative z-10 text-center px-6">
+        <h2 className="text-4xl md:text-5xl font-bold">Hi, I'm Yash 👋</h2>
+        <p className="mt-6 text-slate-700 max-w-2xl mx-auto">
+          Aspiring Software Developer skilled in Machine Learning, Full-Stack Web Development, and .NET Applications.
+        </p>
+        <div className="mt-8 flex justify-center gap-4">
+          <a href="#projects" className="px-6 py-3 bg-slate-900 text-white rounded">View Projects</a>
+          <a href="#contact" className="px-6 py-3 border rounded">Contact Me</a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Skills() {
+  return (
+    <section id="skills" className="py-20 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <h3 className="text-3xl font-bold text-center mb-12">Skills</h3>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="p-6 border rounded">
+            <strong>Data Science & AI</strong><br />Python, Pandas, NumPy, SQL, PyTorch
+          </div>
+          <div className="p-6 border rounded">
+            <strong>Web Development</strong><br />React, Next.js, HTML, CSS, JavaScript
+          </div>
+          <div className="p-6 border rounded">
+            <strong>C# & .NET</strong><br />OOP, SQL Server, Desktop Applications
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="py-20 max-w-6xl mx-auto px-6">
+      <h3 className="text-3xl font-bold text-center mb-12">Projects</h3>
+      <div className="grid md:grid-cols-2 gap-8">
+        <ProjectCard
+          title="Customer Churn Prediction"
+          desc="Machine learning system with analytics dashboard and explainable AI."
+        />
+        <ProjectCard
+          title="CityZen"
+          desc="Full-stack civic issue reporting platform using modern web technologies."
+        />
+        <ProjectCard
+          title="Management Systems Suite"
+          desc="School, Library, Blood Bank, and Hospital Management Systems built using C# and .NET."
+        />
+      </div>
+    </section>
+  )
+}
+
+function ProjectCard({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="p-6 border rounded hover:shadow transition">
+      <h4 className="font-semibold text-lg">{title}</h4>
+      <p className="text-sm text-slate-600 mt-2">{desc}</p>
+    </div>
+  )
+}
+
+function Footer() {
+  return (
+    <footer id="contact" className="py-16 border-t text-center bg-slate-50">
+      <h4 className="text-xl font-semibold">Get in Touch</h4>
+      <p className="mt-4 text-slate-700">Email: <a href="mailto:yashsaxena2110@gmail.com" className="underline">yashsaxena2110@gmail.com</a></p>
+      <p className="mt-2 text-slate-700">Phone: +91-9528155115</p>
+
+      <div className="mt-6 space-x-4">
+        <a href="https://github.com/yashworkspace1?tab=repositories" className="underline">GitHub</a>
+        <a href="https://linkedin.com/" className="underline">LinkedIn</a>
+      </div>
+
+      <p className="text-sm text-slate-500 mt-8">© 2026 Yash Kumar</p>
+    </footer>
+  )
+}
+
+

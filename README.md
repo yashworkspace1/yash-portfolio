@@ -140,4 +140,5 @@ The portfolio can be deployed to:
 
 ---
 
-Built with ❤️ using React + Vite
+Built 
+using React + Vite

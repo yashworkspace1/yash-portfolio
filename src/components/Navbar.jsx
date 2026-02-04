@@ -1,16 +1,42 @@
 import React, { useContext } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { ThemeContext } from '../theme/ThemeContext'
 
 function Brand() {
-  return <div className="brand">Yash Kumar</div>
+  const navigate = useNavigate()
+  return (
+    <div 
+      className="brand"
+      onClick={() => navigate('/')}
+      style={{ cursor: 'pointer' }}
+    >
+      Yash Kumar
+    </div>
+  )
 }
 
 function NavLinks() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const links = [
+    { label: 'Profile', path: '/profile' },
+    { label: 'Skills', path: '/skills' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Experience', path: '/experience' }
+  ]
+
   return (
     <div className="nav-links">
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      {links.map((link) => (
+        <button
+          key={link.path}
+          onClick={() => navigate(link.path)}
+          className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+        >
+          {link.label}
+        </button>
+      ))}
     </div>
   )
 }

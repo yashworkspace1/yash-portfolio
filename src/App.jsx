@@ -1,23 +1,30 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './theme/ThemeContext'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Footer from './components/Footer'
+import Landing from './pages/Landing'
+import Profile from './pages/Profile'
+import SkillsPage from './pages/Skills'
+import ProjectsPage from './pages/Projects'
+import Experience from './pages/Experience'
 
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="app-root">
-        <Navbar />
-        <main>
-          <Hero />
-          <Skills />
-          <Projects />
-          <Footer />
-        </main>
-      </div>
+      <Router>
+        <div className="app-root">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/skills" element={<SkillsPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/experience" element={<Experience />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
     </ThemeProvider>
   )
 }
